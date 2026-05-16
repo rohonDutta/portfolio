@@ -39,9 +39,9 @@ export default function Contact() {
   };
 
   const INFO = [
-    { icon: "@", label: "Email", value: "rohon@example.com", href: "mailto:rohon@example.com" },
-    { icon: "⌥", label: "GitHub", value: "github.com/rohon", href: "https://github.com/rohon" },
-    { icon: "in", label: "LinkedIn", value: "linkedin.com/in/rohon", href: "https://linkedin.com/in/rohon" },
+    { icon: "@", label: "Email", value: "rohonkumardutta@gmail.com", href: "mailto:rohonkumardutta@gmail.com" },
+    { icon: "⌥", label: "GitHub", value: "rohonDutta", href: "https://github.com/rohonDutta" },
+    { icon: "in", label: "LinkedIn", value: "Rohon-kumar-Dutta", href: "https://linkedin.com/in/rohon-kumar-dutta-a1a67b234/" },
   ];
 
   return (

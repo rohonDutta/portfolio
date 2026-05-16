@@ -10,8 +10,12 @@ const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 
-// Manually load .env.local to avoid dependency on 'dotenv'
-const envPath = path.resolve(process.cwd(), ".env.local");
+// Manually load .env or .env.local to avoid dependency on 'dotenv'
+let envPath = path.resolve(process.cwd(), ".env.local");
+if (!fs.existsSync(envPath)) {
+  envPath = path.resolve(process.cwd(), ".env");
+}
+
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, "utf-8");
   envContent.split("\n").forEach((line) => {

@@ -6,6 +6,8 @@ A **production-ready**, full-stack developer portfolio built with **Next.js 14**
 
 Features a playful geometric design system, a secure admin panel with full CRUD operations, contact form with email delivery, ImageKit-powered media uploads, and JWT authentication — all ready to deploy on Vercel.
 
+**Live Demo:** [rohon.pages.dev](https://rohon.pages.dev) | [Portfolio on Vercel](https://rohondutta.vercel.app)
+
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -345,7 +347,7 @@ This project is licensed under the **MIT License** — fork it, customize it, sh
 
 <div align="center">
 
-**Built with ❤️ by [Rohon Kumar Dutta](https://github.com/rohonDutta)**
+**Built with ❤️ by [Rohon Kumar Dutta](https://rohon.pages.dev)**
 
 </div>
 ]]>

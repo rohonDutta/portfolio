@@ -5,7 +5,11 @@ import { connectDB } from "../../../lib/db";
 import Contact from "../../../models/Contact";
 
 async function sendEmail({ name, email, subject, message }) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) return;
+  console.log("Attempting to send email...");
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error("EMAIL_USER or EMAIL_PASS is missing in .env");
+    return;
+  }
 
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST || "smtp.gmail.com",
@@ -17,24 +21,29 @@ async function sendEmail({ name, email, subject, message }) {
     },
   });
 
-  await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_TO,
-    replyTo: email,
-    subject: `[Portfolio] ${subject || "New message"} — from ${name}`,
-    html: `
-      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #7C3AED;">New Contact Form Submission</h2>
-        <table style="width:100%; border-collapse:collapse;">
-          <tr><td style="padding:8px; font-weight:bold;">Name:</td><td>${name}</td></tr>
-          <tr><td style="padding:8px; font-weight:bold;">Email:</td><td>${email}</td></tr>
-          <tr><td style="padding:8px; font-weight:bold;">Subject:</td><td>${subject || "—"}</td></tr>
-        </table>
-        <hr style="margin: 20px 0;" />
-        <p style="white-space: pre-wrap;">${message}</p>
-      </div>
-    `,
-  });
+  try {
+    const info = await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_TO,
+      replyTo: email,
+      subject: `[Portfolio] ${subject || "New message"} — from ${name}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #7C3AED;">New Contact Form Submission</h2>
+          <table style="width:100%; border-collapse:collapse;">
+            <tr><td style="padding:8px; font-weight:bold;">Name:</td><td>${name}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Email:</td><td>${email}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Subject:</td><td>${subject || "—"}</td></tr>
+          </table>
+          <hr style="margin: 20px 0;" />
+          <p style="white-space: pre-wrap;">${message}</p>
+        </div>
+      `,
+    });
+    console.log("Email sent successfully:", info.messageId);
+  } catch (error) {
+    console.error("Nodemailer error:", error);
+  }
 }
 
 export async function POST(req) {
