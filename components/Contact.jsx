@@ -59,9 +59,9 @@ export default function Contact() {
           <div className="inline-block px-4 py-1 bg-quaternary border-2 border-border rounded-full font-heading font-black text-xs uppercase tracking-widest mb-6 -rotate-2 shadow-pop-sm">
             Contact Me
           </div>
-          <h2 className="text-4xl sm:text-6xl font-heading font-black mb-6">Let's Work Together</h2>
+          <h2 className="text-4xl sm:text-6xl font-heading font-black mb-6">Let&apos;s Work Together</h2>
           <p className="text-mutedForeground text-lg max-w-2xl font-body leading-relaxed">
-            Have a project in mind? I'm open to freelance work, full-time roles, and interesting
+            Have a project in mind? I&apos;m open to freelance work, full-time roles, and interesting
             collaborations.
           </p>
         </motion.div>
