@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFDF5;
+    --foreground: #1E293B;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+    --accent: #8B5CF6;
+    --accent-foreground: #FFFFFF;
+    --secondary: #F472B6;
+    --tertiary: #FBBF24;
+    --quaternary: #34D399;
+    --border: #1E293B;
+    --input: #FFFFFF;
+    --card: #FFFFFF;
+    --ring: #8B5CF6;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply font-extrabold tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full border-2 border-background;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+}
+
+@layer components {
+
+  /* The Candy Button (Primary) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-heading font-bold rounded-full border-2 border-border shadow-pop transition-all duration-300 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-pop-md active:translate-x-0.5 active:translate-y-0.5 active:shadow-pop-sm;
+  }
+
+  /* The Pop Button (Secondary/Outline) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-foreground font-heading font-bold rounded-full border-2 border-border shadow-pop transition-all duration-300 hover:bg-tertiary hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-pop-md active:translate-x-0.5 active:translate-y-0.5 active:shadow-pop-sm;
+  }
+
+  /* The Sticker Card */
+  .card-sticker {
+    @apply bg-white border-2 border-border rounded-2xl p-8 shadow-pop transition-all duration-500 hover:scale-[1.02] hover:-rotate-1;
+  }
+
+  .card-featured {
+    @apply card-sticker border-accent shadow-[8px_8px_0px_0px_#F472B6];
+  }
+
+  /* Input Fields */
+  .input-playful {
+    @apply w-full bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-foreground placeholder:text-mutedForeground focus:outline-none focus:border-accent focus:shadow-pop-sm transition-all font-body;
+  }
+
+  .label-playful {
+    @apply block text-sm font-extrabold uppercase tracking-widest text-foreground mb-2 font-heading;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-24 relative;
+  }
+}
+
+@layer utilities {
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .blob-mask {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .bubble-tail {
+    @apply rounded-tl-2xl rounded-tr-2xl rounded-br-2xl rounded-bl-none;
+  }
+}

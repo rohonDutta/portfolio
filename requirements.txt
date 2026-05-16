@@ -1,0 +1,8 @@
+# Python requirements for development/maintenance scripts (if any)
+# Main app is built with Next.js (Node.js), but seed/admin scripts may use Python
+
+# Example: If you use Python for admin scripts, add packages below
+pymongo
+python-dotenv
+
+# Remove or comment out if not using Python scripts
